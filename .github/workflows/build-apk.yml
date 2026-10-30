@@ -19,9 +19,11 @@ jobs:
         node-version: '18'
 
     - name: Install Dependencies
+      working-directory: ./rama777--mobile-gaming---matka-platform-4
       run: npm install
 
     - name: Build Web Assets
+      working-directory: ./rama777--mobile-gaming---matka-platform-4
       run: npm run build
 
     - name: Set up JDK 17
@@ -32,6 +34,7 @@ jobs:
 
     - name: Build Android APK (Capacitor)
       run: |
+        cd rama777--mobile-gaming---matka-platform-4
         npx cap add android || true
         npx cap sync android
         cd android
@@ -42,4 +45,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: app-debug-apk
-        path: android/app/build/outputs/apk/debug/app-debug.apk
+        path: rama777--mobile-gaming---matka-platform-4/android/app/build/outputs/apk/debug/app-debug.apk
